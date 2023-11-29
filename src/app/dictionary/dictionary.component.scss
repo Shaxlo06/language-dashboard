@@ -1,0 +1,34 @@
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+
+  .card {
+    width: 430px;
+    height: 220px;
+    
+    select, option {
+      width: 395px;
+      padding: 10px;
+      outline: none;
+      border: none;
+    }
+
+    option {
+      outline: none;
+      border: none;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    textarea {
+      width: 405px;
+      height: 100px;
+      resize: none;
+      outline: none;
+      border: none;
+    }
+  }
+}
