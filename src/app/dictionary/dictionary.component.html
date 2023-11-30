@@ -14,7 +14,11 @@
             </div> 
             <button aria-colcount="btn" color="primary" class="btn btn-primary p-2" (click)="traslate()">Search</button>
         </div>
-        
+        <div>
+            <p>
+                <i class="fa fa-exchange mt-3" style="color: rgb(59, 58, 58); font-size: 24px;">‌</i>
+            </p>
+        </div>
         <div class="card">
             <div class="card-header">
                 <select formControlName="selectedLangTo" >
@@ -23,7 +27,9 @@
                 </select>
             </div>
             <div class="card-body toText" style="height: 170px;">
-                <h4 style="font-size: 22px;" class="pl-4">{{toText}}</h4>
+                <h4 style="font-size: 22px;" class="pl-4 ">{{toText}}</h4>
+                <i class="fa fa-file-o" style="font-size: 24px; color: rgb(59, 58, 58); top: 100%; bottom: 0; right: 0;"></i>
+                <i class="fa fa-volume-down" style="font-size: 30px; color: rgb(59, 58, 58); top: 100%; bottom: 0; right: 0;"></i>
             </div>
         </div>
     </form>

@@ -21,37 +21,58 @@
 
 .card {
     width: 450px;
+    height: 180px;
 
     
     .lang-card {
-        flag-icon {
-            font-size: 40px;
+        .icon {
+            font-size: 120px ;
+        }
+
+        .text-left {
+            width: 220px;
         }
     }
+}
+
+.card:hover {
+   transform: scale(1.05);
+   transition: all .8s ease;
 }
 
 
 
 @media only screen and (max-width: 729px) {
+    .card {
+        width: 350px;
+        height: 180px;
     
-    mat-card {
-        width: 150px !important;
         
-        
-        .flag-icon {
-            font-size: 90px !important;
+        .lang-card {
+            .icon {
+                font-size: 100px ;
+            }
+
+            h5 {
+                font-size: 16px;
+                font-weight: bold;
+            }
+
+            .text-left {
+                width: 180px;
+                font-size: 12px;
+            }
+
+            button {
+                width: 90px;
+                font-size: 12px;
+            }
         }
     }
+   
 }
 
 @media only screen and (max-width: 1111px) {
     
-    mat-card {
-        width: 200px;
-        
-        
-        .flag-icon {
-            font-size: 120px;
-        }
-    }
+    
 }
