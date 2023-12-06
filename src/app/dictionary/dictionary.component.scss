@@ -1,42 +1,45 @@
-.form {
-  display: flex;
-  justify-content: center;
-  align-items: start;
-  gap: 25px;
-  
-  .card {
-    width: 430px;
-    height: 220px;
+.container {
+  padding-top: 40px;
+  padding-left: 100px;
+  .form {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 25px;
     
-    select, option {
-      width: 395px;
-      padding: 10px;
-      outline: none;
-      border: none;
-    }
-    
-    option {
-      outline: none;
-      border: none;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
-    
-    textarea {
-      width: 405px;
-      height: 100px;
-      resize: none;
-      outline: none;
-      border: none;
-    }
-    
-    .card-body .toText{
-        height: 350px;
-        border: 1px solid red;
+    .card {
+      width: 430px;
+      height: 220px;
       
+      select, option {
+        width: 395px;
+        padding: 10px;
+        outline: none;
+        border: none;
+      }
+      
+      option {
+        outline: none;
+        border: none;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      
+      textarea {
+        width: 405px;
+        height: 100px;
+        resize: none;
+        outline: none;
+        border: none;
+      }
+      
+      .card-body .toText{
+          height: 350px;
+          border: 1px solid red;
+        
+      }
     }
   }
-  
-  
 }
+

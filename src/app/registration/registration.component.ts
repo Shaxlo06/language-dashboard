@@ -35,16 +35,10 @@ export class RegistrationComponent implements OnInit {
       login: this.registrForm.value.login
     }
     
-    this.api.registr(data)
-    .subscribe( res => {
-      console.log(res);
-      this.registrForm.reset()
-      this.router.navigate(["/login"])
-      
-    },err => {
-      alert("something went wrong")
-    }
-    )
+    localStorage.setItem("registeredUser", JSON.stringify(data))
+    console.log(localStorage.getItem('registeredUser'));
+    this.registrForm.reset()
+    this.router.navigate(["/login"])
   }
   
   showPassword() {

@@ -16,9 +16,10 @@ export class LoginComponent implements OnInit {
   users : any
   userStorage = [] 
   signUser: any = []
-  
+  getUser: any = []
   show_button: Boolean = false;
   show_eye: Boolean = false;
+
   
   constructor(private formBuilder : FormBuilder, private api: AuthService, private router: Router, private toastr: ToastrService) {}
   
@@ -31,25 +32,21 @@ export class LoginComponent implements OnInit {
   }
   
   login() {
-    this.api.logIn(this.loginForm)
-    .subscribe(res => {            
-      const user = res.find((a: any) => {
-        return a.fullName === this.loginForm.value.fullName && a.password === this.loginForm.value.password && a.login === this.loginForm.value.login
-      })
-      console.log(user);
+    var getUserObj = JSON.parse(localStorage.getItem('registeredUser') || '{}')
+    this.getUser.push(getUserObj)
+    this.getUser.find((a: any) => {
+      return a.fullName === this.loginForm.value.fullName && a.password === this.loginForm.value.password && a.login === this.loginForm.value.login
+    })    
       
-      
-      if (user) {
+      if (this.getUser) {
         this.router.navigate(["/home"])
-        localStorage.setItem('user', JSON.stringify(user))
+        // localStorage.setItem('user', JSON.stringify(user))
         this.loginForm.reset()
         this.toastr.success('Login successful');
       }else{
         alert('Something went wrong')
       } 
-    }, err => {
-      alert('Something went wrong')
-    })
+    
   }
   
   showPassword() {

@@ -1,46 +1,48 @@
-<div class="sidenav {{storedTheme}}"  [ngClass]="collapsed ? 'sidenav-collapsed': '' ">
-    <div >
-        <a class="logo-container" >
-            <button class="logo" (click)="toggleCollapse()">L</button>
-            <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><div class="logo-text" *ngIf="collapsed">LLDashboard</div></a>
-            <button class="btn-close" *ngIf="collapsed" (click)="closeSideNav()">
-                <i class="fa fa-times close-icon"></i>
-            </button>
-        </a>
+<div class="container-fluid {{storedTheme}}">
+    <div class="sidenav"  [ngClass]="collapsed ? 'sidenav-collapsed': '' ">
+        <div >
+            <a class="logo-container" >
+                <button class="logo" (click)="toggleCollapse()">L</button>
+                <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><div class="logo-text" *ngIf="collapsed">LLDashboard</div></a>
+                <button class="btn-close" *ngIf="collapsed" (click)="closeSideNav()">
+                    <i class="fa fa-times close-icon"></i>
+                </button>
+            </a>
+        </div>
+        <ul class="sidenav-nav">
+            <li class="sidenav-nav-item" >
+                <a  class="sidenav-nav-link" routerLink="/profile" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <p class="sidenav-link-icon" ><i style="color: white; " class="fa fa-user"></i></p>
+                    <span class="sidenav-link-text" *ngIf="collapsed">{{ 'sideNav.users' | translate }}</span>
+                </a>
+            </li>
+            <li class="sidenav-nav-item" >
+                <a  class="sidenav-nav-link" routerLink="/dictionary" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <p class="sidenav-link-icon" ><i style="color: white; " class="fa fa-language"></i></p>
+                    <span class="sidenav-link-text" *ngIf="collapsed">{{ 'buttons.navD' | translate }}</span>
+                </a>
+            </li>
+            
+            <li class="sidenav-nav-item" >
+                <a  class="sidenav-nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <label class="toggle"  for="dark-mode-btn">
+                        <div class="toggle-track">
+                            <input type="checkbox" [ngClass]="(storedTheme === 'theme-dark') ? 'theme-switcher active' : 'theme-switcher'" (click)="setTheme()" class="toggle-checkbox" id="dark-mode-btn" />
+                            <span class="toggle-thumb"></span>
+                            <i class="fa fa-sun" style="color: rgb(242, 242, 10);"></i>
+                            <i class="fa fa-moon" style="color: rgb(30, 46, 105); transform: rotate(40deg);"></i>
+                        </div>
+                    </label>
+                </a>
+            </li>
+            <li class="sidenav-nav-item" >
+                <a  class="sidenav-nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <!-- <p class="sidenav-link-icon" ><i style="color: white; margin-left: 15px;" class="fa fa-language"></i></p> -->
+                    <select class="form-select userName" (click)="selectLang($any($event.target).value)" aria-label="Default select example">
+                        <option *ngFor="let lang of languages">{{ lang }}</option>
+                    </select>
+                </a>
+            </li>
+        </ul>
     </div>
-    <ul class="sidenav-nav">
-        <li class="sidenav-nav-item" >
-            <a  class="sidenav-nav-link" routerLink="/profile" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                <p class="sidenav-link-icon" ><i style="color: white; " class="fa fa-user"></i></p>
-                <span class="sidenav-link-text" *ngIf="collapsed">{{ 'sideNav.users' | translate }}</span>
-            </a>
-        </li>
-        <li class="sidenav-nav-item" >
-            <a  class="sidenav-nav-link" routerLink="/dictionary" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                <p class="sidenav-link-icon" ><i style="color: white; " class="fa fa-language"></i></p>
-                <span class="sidenav-link-text" *ngIf="collapsed">{{ 'buttons.navD' | translate }}</span>
-            </a>
-        </li>
-        
-        <li class="sidenav-nav-item" >
-            <a  class="sidenav-nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                <label class="toggle"  for="dark-mode-btn">
-                    <div class="toggle-track">
-                        <input type="checkbox" [ngClass]="(storedTheme === 'theme-dark') ? 'theme-switcher active' : 'theme-switcher'" (click)="setTheme()" class="toggle-checkbox" id="dark-mode-btn" />
-                        <span class="toggle-thumb"></span>
-                        <i class="fa fa-sun" style="color: rgb(242, 242, 10);"></i>
-                        <i class="fa fa-moon" style="color: rgb(30, 46, 105); transform: rotate(40deg);"></i>
-                    </div>
-                </label>
-            </a>
-        </li>
-        <li class="sidenav-nav-item" >
-            <a  class="sidenav-nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                <!-- <p class="sidenav-link-icon" ><i style="color: white; margin-left: 15px;" class="fa fa-language"></i></p> -->
-                <select class="form-select userName" (click)="selectLang($any($event.target).value)" aria-label="Default select example">
-                    <option *ngFor="let lang of languages">{{ lang }}</option>
-                </select>
-            </a>
-        </li>
-    </ul>
 </div>
